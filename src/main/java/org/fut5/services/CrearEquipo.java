@@ -18,7 +18,7 @@ public class CrearEquipo {
     static Scanner input = new Scanner(System.in);
     static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-    static ArrayList<Equipo> equipos = new ArrayList<>();
+    static public ArrayList<Equipo> equipos = new ArrayList<>();
 
     public static void crearEquipo() throws ParseException {
         System.out.println("Favor de ingresar el nombre del equipo:");

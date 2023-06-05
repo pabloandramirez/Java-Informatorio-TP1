@@ -1,15 +1,19 @@
-package org.fut5.services;
+package org.fut5.services.busqueda.impl;
 
 import org.fut5.domain.Equipo;
 import org.fut5.domain.Jugador;
+import org.fut5.services.CrearEquipo;
+import org.fut5.services.busqueda.IBuscar;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BuscarJugador {
+public class BuscarJugador implements IBuscar {
     static Scanner input = new Scanner(System.in);
 
-    public static void buscarJugador(){
+    @Override
+    public void buscar(){
         System.out.println("Ingrese el nombre del jugador que quiere buscar:");
         String nombre = input.nextLine();
         ArrayList<Jugador> resultado = new ArrayList<>();
