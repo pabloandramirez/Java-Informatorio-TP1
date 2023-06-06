@@ -31,6 +31,7 @@ public class CrearEquipo {
         System.out.println("Ingrese los datos del entrenador:");
         Entrenador entrenador = crearEntrenador();
         Equipo equipo = new Equipo(nombreEquipo, fechaCreacion, jugadores, entrenador);
+        equipo.asignarCapitan();
         equipos.add(equipo);
         continuar();
     }
@@ -38,7 +39,10 @@ public class CrearEquipo {
     public static ArrayList<Jugador> onceJugadores(String nombreEquipo){
         ArrayList<Jugador> jugadores = new ArrayList<>();
         for (int i = 0; i < 11; i++) {
-            jugadores.add(crearJugador(nombreEquipo));
+            jugadores.add(crearJugador(nombreEquipo, false));
+            if (jugadores.get(i).isCapitan()){
+                jugadores.add(crearJugador(nombreEquipo, true));
+            }
         }
         return jugadores;
     }

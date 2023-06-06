@@ -9,6 +9,7 @@ public class Equipo {
     private Date fechaCreacion;
     private ArrayList<Jugador> jugadores;
     private Entrenador entrenador;
+    private Jugador capitan;
 
     public Equipo(String nombre, Date fechaCreacion,
                   ArrayList<Jugador> jugadores,
@@ -49,6 +50,22 @@ public class Equipo {
 
     public void setEntrenador(Entrenador entrenador) {
         this.entrenador = entrenador;
+    }
+
+    public Jugador getCapitan() {
+        return capitan;
+    }
+
+    public void setCapitan(Jugador capitan) {
+        this.capitan = capitan;
+    }
+
+    public void asignarCapitan() {
+        for (Jugador jugador: jugadores) {
+            if (jugador.isCapitan()){
+                this.capitan = jugador;
+            }
+        }
     }
 
     @Override

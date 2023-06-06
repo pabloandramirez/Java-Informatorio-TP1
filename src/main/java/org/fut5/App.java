@@ -1,6 +1,7 @@
 package org.fut5;
 
 
+import org.fut5.services.busqueda.impl.BuscarEquipo;
 import org.fut5.services.busqueda.impl.BuscarJugador;
 
 import java.text.ParseException;
@@ -23,7 +24,10 @@ public class App {
                 BuscarJugador buscadorJugador = new BuscarJugador();
                 buscadorJugador.buscar();
                 break;
-            case 3: break;
+            case 3:
+                BuscarEquipo buscarEquipo = new BuscarEquipo();
+                buscarEquipo.buscar();
+                break;
             case 4: break;
             case 5: break;
             case 6: break;

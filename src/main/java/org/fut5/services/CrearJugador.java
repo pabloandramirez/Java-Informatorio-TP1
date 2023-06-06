@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class CrearJugador {
     static Scanner input = new Scanner(System.in);
-    public static Jugador crearJugador(String nombreEquipo){
+    public static Jugador crearJugador(String nombreEquipo, boolean yaHayCapitan){
         Jugador jugador = null;
         try{
             System.out.println("Ingresar el nombre del jugador:");
@@ -24,9 +24,14 @@ public class CrearJugador {
             int cantidadGoles = input.nextInt();
             System.out.println("Ingrese la cantidad de partidos:");
             int cantidadPartidos = input.nextInt();
-            System.out.println("El jugador es capitan? SI/NO");
-            String esCapitan = input.next();
-            boolean capitan = esCapitan(esCapitan);
+            boolean capitan;
+            if (!yaHayCapitan){
+                System.out.println("El jugador es capitan? SI/NO");
+                String esCapitan = input.next();
+                capitan = esCapitan(esCapitan);
+            } else {
+                capitan = false;
+            }
             System.out.println("Cual es el numero del dorsal del jugador?");
             int numeroDorsal = input.nextInt();
             jugador = new Jugador(nombre, apellido, altura, posicion,
