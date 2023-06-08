@@ -1,5 +1,6 @@
 package org.fut5.services;
 
+import org.fut5.App;
 import org.fut5.domain.Entrenador;
 import org.fut5.domain.Equipo;
 import org.fut5.domain.Jugador;
@@ -38,10 +39,11 @@ public class CrearEquipo {
 
     public static ArrayList<Jugador> onceJugadores(String nombreEquipo){
         ArrayList<Jugador> jugadores = new ArrayList<>();
+        boolean hayCapitan = false;
         for (int i = 0; i < 11; i++) {
-            jugadores.add(crearJugador(nombreEquipo, false));
+            jugadores.add(crearJugador(nombreEquipo, hayCapitan));
             if (jugadores.get(i).isCapitan()){
-                jugadores.add(crearJugador(nombreEquipo, true));
+                hayCapitan = true;
             }
         }
         return jugadores;
@@ -57,6 +59,7 @@ public class CrearEquipo {
             }
             else {
                 continuar=false;
+                App.menu();
             }
         }
     }
