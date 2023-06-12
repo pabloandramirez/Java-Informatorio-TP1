@@ -7,10 +7,7 @@ import org.fut5.domain.Jugador;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import static org.fut5.services.CrearEntrenador.crearEntrenador;
 import static org.fut5.services.CrearJugador.crearJugador;
@@ -28,7 +25,7 @@ public class CrearEquipo {
         String fechaSinFormatear = input.next();
         Date fechaCreacion = dateFormat.parse(fechaSinFormatear);
         System.out.println("Favor de ingresar los datos de los 11 jugadores:");
-        ArrayList<Jugador> jugadores = onceJugadores(nombreEquipo);
+        List<Jugador> jugadores = onceJugadores(nombreEquipo);
         System.out.println("Ingrese los datos del entrenador:");
         Entrenador entrenador = crearEntrenador();
         Equipo equipo = new Equipo(nombreEquipo, fechaCreacion, jugadores, entrenador);

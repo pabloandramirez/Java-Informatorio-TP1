@@ -1,4 +1,4 @@
-package org.fut5.domain;
+package org.fut5.bootstrap.constantes;
 
 public enum Posicion {
     DELANTERO ("Delantero"),

@@ -4,6 +4,7 @@ package org.fut5;
 import org.fut5.services.busqueda.impl.BuscarEquipoDetallado;
 import org.fut5.services.busqueda.impl.BuscarEquipoNombre;
 import org.fut5.services.busqueda.impl.BuscarJugador;
+import org.fut5.services.busqueda.impl.EliminarEquipo;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -33,7 +34,10 @@ public class App {
                 BuscarEquipoNombre buscarEquipoNombre = new BuscarEquipoNombre();
                 buscarEquipoNombre.buscar();
                 break;
-            case 5: break;
+            case 5:
+                EliminarEquipo eliminarEquipo = new EliminarEquipo();
+                eliminarEquipo.buscar();
+                break;
             case 6: break;
             case 7: break;
         }

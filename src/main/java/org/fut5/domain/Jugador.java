@@ -1,8 +1,10 @@
 package org.fut5.domain;
 
+import org.fut5.bootstrap.constantes.Posicion;
+
 public class Jugador extends Persona{
     private int id;
-    private float altura;
+    private double altura;
     private Posicion posicion;
     private int cantidadGoles;
     private int cantidadPartidos;
@@ -12,7 +14,7 @@ public class Jugador extends Persona{
     private static int idAutoincrement;
 
     public Jugador(String nombre, String apellido,
-                   float altura, Posicion posicion, int cantidadGoles,
+                   double altura, Posicion posicion, int cantidadGoles,
                    int cantidadPartidos, boolean capitan,
                    int numeroCamiseta, String equipo) {
         super(nombre, apellido);
@@ -30,7 +32,7 @@ public class Jugador extends Persona{
         return id;
     }
 
-    public float getAltura() {
+    public double getAltura() {
         return altura;
     }
 

@@ -2,17 +2,18 @@ package org.fut5.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Equipo {
     private String nombre;
     private Date fechaCreacion;
-    private ArrayList<Jugador> jugadores;
+    private List<Jugador> jugadores;
     private Entrenador entrenador;
     private Jugador capitan;
 
     public Equipo(String nombre, Date fechaCreacion,
-                  ArrayList<Jugador> jugadores,
+                  List<Jugador> jugadores,
                   Entrenador entrenador) {
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
@@ -36,7 +37,7 @@ public class Equipo {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public ArrayList<Jugador> getJugadores() {
+    public List<Jugador> getJugadores() {
         return jugadores;
     }
 

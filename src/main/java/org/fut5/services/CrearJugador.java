@@ -1,7 +1,7 @@
 package org.fut5.services;
 
 import org.fut5.domain.Jugador;
-import org.fut5.domain.Posicion;
+import org.fut5.bootstrap.constantes.Posicion;
 
 import java.util.Arrays;
 import java.util.Objects;
