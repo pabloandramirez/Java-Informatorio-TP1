@@ -1,7 +1,7 @@
 package org.fut5.services.busqueda.impl;
 
+import org.fut5.bootstrap.BootstrapData;
 import org.fut5.domain.Equipo;
-import org.fut5.services.CrearEquipo;
 import org.fut5.services.busqueda.IBuscar;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class BuscarEquipoDetallado implements IBuscar {
         System.out.println("Ingrese el nombre del capitan del equipo:");
         String nombreCapitan = input.nextLine();
         ArrayList<Equipo> equipos = new ArrayList<>();
-        for (Equipo equipo: CrearEquipo.equipos) {
+        for (Equipo equipo: BootstrapData.equipos) {
             if (equipo.getNombre().equalsIgnoreCase(nombreEquipo)){
                 if (equipo.getEntrenador().getNombre().equalsIgnoreCase(nombreEntrenador)){
                     if (equipo.getCapitan().getNombre().equalsIgnoreCase(nombreCapitan)){

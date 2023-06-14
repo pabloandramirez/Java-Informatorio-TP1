@@ -21,6 +21,7 @@ public class App {
         switch (opcion){
             case 1:
                 crearEquipo();
+                continuar();
                 break;
             case 2:
                 BuscarJugador buscadorJugador = new BuscarJugador();
@@ -54,6 +55,21 @@ public class App {
         menu.add("7-Exportar lista de jugadores de un equipo hacia un archivo csv o txt");
         for (String opcion: menu) {
             System.out.println(opcion);
+        }
+    }
+
+    public static void continuar() throws ParseException {
+        boolean continuar = true;
+        while (continuar){
+            System.out.println("Quiere cargar un nuevo equipo? SI/NO");
+            String opcion = input.nextLine();
+            if (opcion.equalsIgnoreCase("SI")){
+                crearEquipo();
+            }
+            else {
+                continuar=false;
+                App.menu();
+            }
         }
     }
 }

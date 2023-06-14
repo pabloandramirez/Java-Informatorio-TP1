@@ -1,8 +1,8 @@
 package org.fut5.services.busqueda.impl;
 
+import org.fut5.bootstrap.BootstrapData;
 import org.fut5.domain.Equipo;
 import org.fut5.domain.Jugador;
-import org.fut5.services.CrearEquipo;
 import org.fut5.services.busqueda.IBuscar;
 
 
@@ -17,7 +17,7 @@ public class BuscarJugador implements IBuscar {
         System.out.println("Ingrese el nombre del jugador que quiere buscar:");
         String nombre = input.nextLine();
         ArrayList<Jugador> resultado = new ArrayList<>();
-        for (Equipo equipo: CrearEquipo.equipos) {
+        for (Equipo equipo: BootstrapData.equipos) {
             for (Jugador jugador: equipo.getJugadores()) {
                 if (jugador.getNombre().equalsIgnoreCase(nombre)){
                     resultado.add(jugador);

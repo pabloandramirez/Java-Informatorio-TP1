@@ -31,13 +31,12 @@ public class CrearEquipo {
         Equipo equipo = new Equipo(nombreEquipo, fechaCreacion, jugadores, entrenador);
         equipo.asignarCapitan();
         equipos.add(equipo);
-        continuar();
     }
 
     public static ArrayList<Jugador> onceJugadores(String nombreEquipo){
         ArrayList<Jugador> jugadores = new ArrayList<>();
         boolean hayCapitan = false;
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 5; i++) {
             jugadores.add(crearJugador(nombreEquipo, hayCapitan));
             if (jugadores.get(i).isCapitan()){
                 hayCapitan = true;
@@ -46,18 +45,4 @@ public class CrearEquipo {
         return jugadores;
     }
 
-    public static void continuar() throws ParseException {
-        boolean continuar = true;
-        while (continuar){
-            System.out.println("Quiere cargar un nuevo equipo? SI/NO");
-            String opcion = input.nextLine();
-            if (opcion.equalsIgnoreCase("SI")){
-                crearEquipo();
-            }
-            else {
-                continuar=false;
-                App.menu();
-            }
-        }
-    }
 }
