@@ -1,46 +1,68 @@
 package org.fut5;
 
 
+import org.fut5.services.busqueda.IBuscar;
 import org.fut5.services.busqueda.impl.BuscarEquipoDetallado;
 import org.fut5.services.busqueda.impl.BuscarEquipoNombre;
 import org.fut5.services.busqueda.impl.BuscarJugador;
 import org.fut5.services.busqueda.impl.EliminarEquipo;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
-import static org.fut5.services.CrearEquipo.crearEquipo;
+import static org.fut5.bootstrap.BootstrapData.crearEquipoManCity;
+import static org.fut5.bootstrap.BootstrapData.crearEquipoManUtd;
 
 public class App {
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) throws ParseException {
-        menu();
-        System.out.println("Favor de ingresar la opcion del menú: ");
-        int opcion = input.nextInt();
-        switch (opcion){
-            case 1:
-                crearEquipo();
-                continuar();
+        while(true){
+            menu();
+            System.out.println("Favor de ingresar la opcion del menú o ingrese 'exit' para salir: ");
+            String opcion = input.nextLine();
+            if(Objects.equals(opcion, "1") || Objects.equals(opcion, "2") || Objects.equals(opcion, "3") ||
+                    Objects.equals(opcion, "4") || Objects.equals(opcion, "5") || Objects.equals(opcion, "6") ||
+                    Objects.equals(opcion, "7")){
+                switch (opcion){
+                    case "1":
+                        boolean continuar = true;
+                        while (continuar){
+                            crearEquipoManUtd();
+                            System.out.println("Quiere cargar un nuevo equipo? SI/NO");
+                            String entrada = input.next();
+                            if (entrada.equalsIgnoreCase("SI")){
+                                crearEquipoManCity();
+                            }
+                            else {
+                                continuar=false;
+                            }
+                        }
+                        break;
+                    case "2":
+                        IBuscar buscadorJugador = new BuscarJugador();
+                        buscadorJugador.buscar();
+                        break;
+                    case "3":
+                        IBuscar buscarEquipoDetallado = new BuscarEquipoDetallado();
+                        buscarEquipoDetallado.buscar();
+                        break;
+                    case "4":
+                        IBuscar buscarEquipoNombre = new BuscarEquipoNombre();
+                        buscarEquipoNombre.buscar();
+                        break;
+                    case "5":
+                        IBuscar eliminarEquipo = new EliminarEquipo();
+                        eliminarEquipo.buscar();
+                        break;
+                    case "6": break;
+                    case "7": break;
+                }
+            } else if (opcion.equalsIgnoreCase("exit")) {
+                System.out.println("Saliendo de la aplicacion, buenas tardes");
                 break;
-            case 2:
-                BuscarJugador buscadorJugador = new BuscarJugador();
-                buscadorJugador.buscar();
-                break;
-            case 3:
-                BuscarEquipoDetallado buscarEquipoDetallado = new BuscarEquipoDetallado();
-                buscarEquipoDetallado.buscar();
-                break;
-            case 4:
-                BuscarEquipoNombre buscarEquipoNombre = new BuscarEquipoNombre();
-                buscarEquipoNombre.buscar();
-                break;
-            case 5:
-                EliminarEquipo eliminarEquipo = new EliminarEquipo();
-                eliminarEquipo.buscar();
-                break;
-            case 6: break;
-            case 7: break;
+            } else {
+                System.out.println("Opcion incorrecto, ingrese nuevamente");
+            }
         }
     }
 
@@ -59,17 +81,6 @@ public class App {
     }
 
     public static void continuar() throws ParseException {
-        boolean continuar = true;
-        while (continuar){
-            System.out.println("Quiere cargar un nuevo equipo? SI/NO");
-            String opcion = input.nextLine();
-            if (opcion.equalsIgnoreCase("SI")){
-                crearEquipo();
-            }
-            else {
-                continuar=false;
-                App.menu();
-            }
-        }
+
     }
 }

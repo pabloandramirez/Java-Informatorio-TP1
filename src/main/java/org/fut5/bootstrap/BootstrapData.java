@@ -7,13 +7,14 @@ import org.fut5.domain.Jugador;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 
 
 public class BootstrapData {
 
-    public static List<Equipo> equipos;
+    public static List<Equipo> equipos = new ArrayList<>();
 
     public static List<Jugador> crearJugadoresManchesterUnited(){
 
@@ -37,5 +38,28 @@ public class BootstrapData {
         String fechaSinFormatear = "24/04/1902";
         Equipo equipo = new Equipo("Manchester United", dateFormat.parse(fechaSinFormatear), crearJugadoresManchesterUnited(), crearEntrenadorManchesterUnited());
         equipos.add(equipo);
+    }
+
+    public static void crearEquipoManCity() throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaSinFormatear = "23/11/1880";
+        Equipo equipo = new Equipo("Manchester City", dateFormat.parse(fechaSinFormatear), crearJugadoresManchesterCity(), crearEntrenadorManchesterCity());
+        equipos.add(equipo);
+    }
+
+    private static Entrenador crearEntrenadorManchesterCity() {
+        return new Entrenador("Pep", "Guardiola", 52);
+    }
+
+    private static List<Jugador> crearJugadoresManchesterCity() {
+        List<Jugador> jugadores;
+        jugadores = List.of(
+                new Jugador("Ederson","Moraes",1.88,Posicion.PORTERO,0, 300, false, 31, "Manchester City"),
+                new Jugador("Kyle","Walker",1.83,Posicion.DEFENSOR,4, 50, false, 2, "Manchester City"),
+                new Jugador("John","Stones",1.88,Posicion.DEFENSOR,5, 50, false, 5, "Manchester City"),
+                new Jugador("Ilkay", "Gundogan", 1.91, Posicion.MEDIOCAMPISTA , 23, 55, true, 8, "Manchester City"),
+                new Jugador("Phil","Foden", 1.71, Posicion.DELANTERO,21,56, false, 47, "Manchester City")
+        );
+        return jugadores;
     }
 }

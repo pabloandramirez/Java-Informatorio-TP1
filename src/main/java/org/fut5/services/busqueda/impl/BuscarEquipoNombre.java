@@ -2,9 +2,11 @@ package org.fut5.services.busqueda.impl;
 
 import org.fut5.bootstrap.BootstrapData;
 import org.fut5.domain.Equipo;
+import org.fut5.domain.Jugador;
 import org.fut5.services.busqueda.IBuscar;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class BuscarEquipoNombre implements IBuscar {
@@ -23,7 +25,11 @@ public class BuscarEquipoNombre implements IBuscar {
             System.out.println("No fue encontrado ningun equipo con ese nombre");
         } else {
             for (Equipo equipo: equiposEncontrados) {
-                System.out.println(equipo.toString());
+                System.out.println(equipo.getNombre() + "; " +
+                        equipo.getEntrenador().getNombre() + "; " +
+                        equipo.getJugadores()
+                                .stream()
+                                .sorted(Comparator.comparing(Jugador::getNombre)));
             }
         }
     }
